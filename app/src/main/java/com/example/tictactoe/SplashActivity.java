@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -14,7 +17,10 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         Intent iNext=new Intent(SplashActivity.this,MainActivity.class);
-
+        ImageView img;
+        img=findViewById(R.id.img);
+        Animation rotate= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate);
+        img.startAnimation(rotate);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
